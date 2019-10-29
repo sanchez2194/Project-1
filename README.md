@@ -5,14 +5,14 @@ Scott, Jed, Anthony's first project
 
 - As a Basic userr I want:
     - A haircut
-    - Conienient location
+    - Convienient location
     - Fair Price
 
 - As a Intermediate user I want:
     - Styled haircut
-    - Basic Grroming
-    - Fair Pricce
-    - Conienient location
+    - Basic Grooming
+    - Fair Price
+    - Convienient location
 
 
 - As a Special ocassion user I want:

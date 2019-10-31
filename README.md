@@ -26,3 +26,13 @@ Scott, Jed, Anthony's first project
     - Map
     - Reviews print/online
     - Discount/Coupons
+
+
+    ## Presentation 1 outline
+    -   Team intro page "well Groomed"
+    -   Concept: Barber Stop
+    -   User Cases
+    -   Major Components
+    -   Mock up
+
+        

@@ -5,34 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./Assets/style.css">
     <title>Project1</title>
 </head>
 
 <body>
     <div class="container">
+
+        <!--Navigation-->
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+
+        <!--Barbershop Pole Gif-->
+        <img src="./Assets/images/barberpole2.gif" alt="barber pole" id="barber-pole">
+
         <!--Jumbotron Header-->
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
                 <h1 class="display-4">Welcome to Barber Stop</h1>
-                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.
+                </p>
             </div>
         </div>
 
         <!--Login Form-->
         <form class="needs-validation" novalidate>
+            <div class="form-row"><strong>Sign Up</strong></div>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationTooltip01">First name</label>
-                    <input type="text" class="form-control" id="validationTooltip01" placeholder="First name" value="Mark" required>
+                    <input type="text" class="form-control" id="validationTooltip01" placeholder="First name"
+                        value="Mark" required>
                     <div class="valid-tooltip">
                         Looks good!
                     </div>
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="validationTooltip02">Last name</label>
-                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name" value="Otto" required>
+                    <input type="text" class="form-control" id="validationTooltip02" placeholder="Last name"
+                        value="Otto" required>
                     <div class="valid-tooltip">
                         Looks good!
                     </div>
@@ -43,7 +68,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
                         </div>
-                        <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                        <input type="text" class="form-control" id="validationTooltipUsername" placeholder="Username"
+                            aria-describedby="validationTooltipUsernamePrepend" required>
                         <div class="invalid-tooltip">
                             Please choose a unique and valid username.
                         </div>
@@ -83,7 +109,8 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
     <script src="./Assets/app.js"></script>

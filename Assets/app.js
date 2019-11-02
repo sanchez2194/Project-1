@@ -18,7 +18,7 @@ database.ref().push({
 })
 alert("database Working")
 
-
+//Yelp API
 var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando";
 
 $.ajax({

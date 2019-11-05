@@ -55,7 +55,64 @@
                 center: [lon, lat],
                 zoom: zoomSet
             });
+            map.on('load', function(e) {
+                // Add the data to your map as a layer
+                map.addLayer({
+                    id: 'locations',
+                    type: 'symbol',
+                    // Add a GeoJSON source containing place coordinates and information.
+                    source: {
+                        type: 'geojson',
+                        data: stores
+                    },
+                    layout: {
+                        'icon-image': 'restaurant-15',
+                        'icon-allow-overlap': true,
+                    }
+                });
+            });
         }
+        var stores = {
+            "type": "FeatureCollection",
+            "features": [{
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.350912,
+                        28.5388149
+                    ]
+                },
+                // "properties": {
+                //     "phoneFormatted": "(202) 234-7336",
+                //     "phone": "2022347336",
+                //     "address": "1471 P St NW",
+                //     "city": "Washington DC",
+                //     "country": "United States",
+                //     "crossStreet": "at 15th St NW",
+                //     "postalCode": "20005",
+                //     "state": "D.C."
+                // }
+            }, {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.3399411924465,
+                        28.5520350007196
+                    ]
+                },
+                "properties": {
+                    "phoneFormatted": "(202) 507-8357",
+                    "phone": "2025078357",
+                    "address": "2221 I St NW",
+                    "city": "Washington DC",
+                    "country": "United States",
+                    "crossStreet": "at 22nd St NW",
+                    "postalCode": "20037",
+                    "state": "D.C."
+                }
+
+            }]
+        };
     </script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

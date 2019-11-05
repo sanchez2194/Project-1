@@ -12,11 +12,29 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var database = firebase.database()
-database.ref().push({
-    message: "Hello World"
 
-})
-alert("database Working")
+// Login variables
+var firstName = "";
+var lastName = "";
+var userName = "";
+
+//Sign up page on click
+$("#sign-up-submit").on("click", function(){
+    event.preventDefault();
+
+    firstName = $("#sign-up-first-name").val().trim();
+    lastName = $("#sign-up-last-name").val().trim();
+    userName = $("#sign-up-username").val().trim();
+
+    var person = {
+        name: firstName + " " + lastName,
+        user: userName
+    };
+
+    database.ref().push(person);
+console.log("Did string con work? " + person.name);
+
+});
 
 //Yelp API
 var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando";
@@ -28,3 +46,4 @@ $.ajax({
 }).then(function(response) {
     console.log(response);
 });
+

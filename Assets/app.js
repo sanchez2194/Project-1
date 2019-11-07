@@ -40,7 +40,7 @@ $("#sign-up-submit").on("click", function() {
 
 
 //Yelp API
-var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando";
+var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando&limit=10";
 
 $.ajax({
     url: queryURL,
@@ -48,6 +48,14 @@ $.ajax({
     method: "GET",
 }).then(function(response) {
     console.log(response);
+    console.log(response.businesses[0].name)
+    for(i = 0; i < response.businesses.length; i++){
+        var name = response.businesses[i].name;
+        var locationLat = response.businesses[i].coordinates.latitude;
+        var locationLon = response.businesses[i].coordinates.longitude;
+        console.log(name, "Lat: " + locationLat, "Lon: " + locationLon);
+    }
+  
 });
 
 //jed map jaavascript

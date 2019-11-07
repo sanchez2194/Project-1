@@ -63,8 +63,9 @@ function getLocation() {
     } else {
         Alert("Geolocation is not supported by this browser.");
     }
-    0
+
 }
+
 
 function showPosition(position) {
     lat = position.coords.latitude

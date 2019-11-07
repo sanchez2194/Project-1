@@ -1,6 +1,7 @@
 alert("Javascriopt Working");
 
 
+
 var firebaseConfig = {
     apiKey: "AIzaSyAv9P8U6A22qsh0XSuuPv1hdVak-c_RShE",
     authDomain: "barberstopdatabase.firebaseapp.com",

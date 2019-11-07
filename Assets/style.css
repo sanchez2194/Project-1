@@ -30,3 +30,38 @@
     box-sizing: border-box;
   }
   
+  #barber-pole {
+    position: relative;
+    right: ;
+    height: 250px;
+  }
+
+  #barber-pole2 {
+    position: relative;
+    left: 18px;
+    height: 250px;
+  }
+
+  #barber-pic {
+    position: relative;
+    left: 10px;
+    height: 225px;
+    
+  }
+  
+  #body1 {
+    background-image:url(./images/images\ \(2\).jpeg)
+  }
+
+  #form{
+    color: white;
+
+  }
+
+  h1 {
+    text-align: center;
+  }
+
+  .list-group {
+    width: 1200px;
+  }

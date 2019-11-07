@@ -1,5 +1,6 @@
 alert("Javascriopt Working");
 
+
 var firebaseConfig = {
     apiKey: "AIzaSyAv9P8U6A22qsh0XSuuPv1hdVak-c_RShE",
     authDomain: "barberstopdatabase.firebaseapp.com",
@@ -19,7 +20,7 @@ var lastName = "";
 var userName = "";
 
 //Sign up page on click
-$("#sign-up-submit").on("click", function(){
+$("#sign-up-submit").on("click", function() {
     event.preventDefault();
 
     firstName = $("#sign-up-first-name").val().trim();
@@ -32,14 +33,14 @@ $("#sign-up-submit").on("click", function(){
     };
 
     database.ref().push(person);
-console.log("Did string con work? " + person.name);
+    console.log("Did string con work? " + person.name);
 
 });
 
 
 
 //Yelp API
-var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando";
+var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando&limit=10";
 
 $.ajax({
     url: queryURL,
@@ -47,5 +48,74 @@ $.ajax({
     method: "GET",
 }).then(function(response) {
     console.log(response);
+    console.log(response.businesses[0].name)
+    for(i = 0; i < response.businesses.length; i++){
+        var name = response.businesses[i].name;
+        var locationLat = response.businesses[i].coordinates.latitude;
+        var locationLon = response.businesses[i].coordinates.longitude;
+        console.log(name, "Lat: " + locationLat, "Lon: " + locationLon);
+    }
+  
 });
 
+//jed map jaavascript
+getLocation();
+var lat;
+var lon;
+var zoomSet = 11;
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+        console.log(navigator.geolocation.getCurrentPosition)
+    } else {
+        Alert("Geolocation is not supported by this browser.");
+    }
+    0
+}
+
+function showPosition(position) {
+    lat = position.coords.latitude
+    lon = position.coords.longitude
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+
+    mapboxgl.accessToken = 'pk.eyJ1IjoiamVkbWlrZSIsImEiOiJjazJsMTA4eHowMjlhM210NTV0NjRxZ2toIn0.xs3l-153TcEwOsjoJu7ArQ';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [lon, lat],
+        // center: [-77.034084, 38.909671],
+        zoom: zoomSet
+    });
+
+    map.on('load', function(e) {
+        // Add the data to your map as a layer
+        map.addLayer({
+            id: 'locations',
+            type: 'symbol',
+            // Add a GeoJSON source containing place coordinates and information.
+            source: {
+                type: 'geojson',
+                data: stores
+            },
+            layout: {
+                'icon-image': 'embassy-15',
+                'icon-allow-overlap': true,
+            }
+        });
+    });
+
+    var stores = {
+        "type": "FeatureCollection",
+        "features": [{
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-81.350912,
+                    28.5388149
+                ]
+            }
+        }]
+    }
+}

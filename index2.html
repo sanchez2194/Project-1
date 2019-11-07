@@ -1,5 +1,6 @@
 <!doctype html>
 
+
 <html lang="en">
 
 <head>
@@ -10,12 +11,14 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Map Paage</title>
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
+    <h1>Map Page</h1>
     <div id='map' style='width: 400px; height: 300px;'></div>
+
+
 
     <!-- Optional JavaScript -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -26,100 +29,13 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.4.1/mapbox-gl.css' rel='stylesheet' />
 
 
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         getLocation();
-        var lat;
-        var long;
-        var zoomSet = 13;
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-                console.log(navigator.geolocation.getCurrentPosition)
-            } else {
-                Alert("Geolocation is not supported by this browser.");
-            }
-        }
-
-        function showPosition(position) {
-            lat = position.coords.latitude
-            lon = position.coords.longitude
-            console.log(position.coords.latitude);
-            console.log(position.coords.longitude);
-            mapboxgl.accessToken = 'pk.eyJ1IjoiamVkbWlrZSIsImEiOiJjazJsMTA4eHowMjlhM210NTV0NjRxZ2toIn0.xs3l-153TcEwOsjoJu7ArQ';
-            var map = new mapboxgl.Map({
-                container: 'map',
-                style: 'mapbox://styles/mapbox/streets-v11',
-                center: [lon, lat],
-                zoom: zoomSet
-            });
-            map.on('load', function(e) {
-                // Add the data to your map as a layer
-                map.addLayer({
-                    id: 'locations',
-                    type: 'symbol',
-                    // Add a GeoJSON source containing place coordinates and information.
-                    source: {
-                        type: 'geojson',
-                        data: stores
-                    },
-                    layout: {
-                        'icon-image': 'embassy-15',
-                        'icon-allow-overlap': true,
-                    }
-                });
-            });
-        }
-        var stores = {
-            "type": "FeatureCollection",
-            "features": [{
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-81.350912,
-                        28.5388149
-                    ]
-                },
-                // "properties": {
-                //     "phoneFormatted": "(202) 234-7336",
-                //     "phone": "2022347336",
-                //     "address": "1471 P St NW",
-                //     "city": "Washington DC",
-                //     "country": "United States",
-                //     "crossStreet": "at 15th St NW",
-                //     "postalCode": "20005",
-                //     "state": "D.C."
-                // }
-            }, {
-                "type": "Feature",
-                "geometry": {
-                    "type": "Point",
-                    "coordinates": [-81.3399411924465,
-                        28.5520350007196
-                    ]
-                },
-                "properties": {
-                    "phoneFormatted": "(202) 507-8357",
-                    "phone": "2025078357",
-                    "address": "2221 I St NW",
-                    "city": "Washington DC",
-                    "country": "United States",
-                    "crossStreet": "at 22nd St NW",
-                    "postalCode": "20037",
-                    "state": "D.C."
-                }
-            }]
-        };
     </script>
 
-
-
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

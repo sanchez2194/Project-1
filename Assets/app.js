@@ -61,7 +61,9 @@ $.ajax({
         var rating = response.businesses[i].rating;
         var price = response.businesses[i].price;
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
-        locations.push(locationLat, locationLon);
+        var location = [];
+        location.push(locationLat, locationLon);
+        locations.push(location);
     }
     console.log("location: " + locations);
 

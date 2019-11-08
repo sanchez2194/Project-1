@@ -98,18 +98,105 @@ function showPosition(position) {
     };
     // Data from Yelp barber shop list .
     var barberShops = {
-
         "type": "FeatureCollection",
         "features": [{
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-81.350912,
-                    28.5388149
-                ]
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.2081, 28.6700]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.2000, 28.6550]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.2400, 28.6000]
+                },
+
+            }, {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.15004, 28.5500]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.2000, 27.6550]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.3000, 29.4000]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-82.0000, 28.9000]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.0195, 28.0056]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.8520, 28.9999]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.1515, 28.4222]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.1616, 28.6161]
+                },
+
+            },
+            {
+                "type": "Feature",
+                "geometry": {
+                    "type": "Point",
+                    "coordinates": [-81.0101, 28.0033]
+                },
+
             }
-        }]
+        ]
     };
+
 
     map.on('load', function(e) {
         // Add the data to your map as a layer

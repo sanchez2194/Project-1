@@ -1,7 +1,6 @@
 alert("Javascriopt Working");
 
 
-
 var firebaseConfig = {
     apiKey: "AIzaSyAv9P8U6A22qsh0XSuuPv1hdVak-c_RShE",
     authDomain: "barberstopdatabase.firebaseapp.com",
@@ -53,9 +52,16 @@ $.ajax({
 
 //jed map jaavascript
 getLocation();
+
 var lat;
 var lon;
+var yelpLat;
+var yelplon;
 var zoomSet = 11;
+
+
+// Data from Yelp barber shop list .
+
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -64,14 +70,13 @@ function getLocation() {
     } else {
         Alert("Geolocation is not supported by this browser.");
     }
-    0
+
 }
+
 
 function showPosition(position) {
     lat = position.coords.latitude
     lon = position.coords.longitude
-    console.log(position.coords.latitude);
-    console.log(position.coords.longitude);
 
 
 
@@ -86,6 +91,20 @@ function showPosition(position) {
         zoom: zoomSet
     });
     //data from device location "user location"
+
+
+
+    var yelpLatLon = [
+        [-81.350912, 28.5388160],
+        [-81.350912, 28.5388159],
+        [-81.350912, 28.5388149]
+    ];
+    console.log(position.coords.latitude);
+    console.log(position.coords.longitude);
+
+
+
+
     var userLoc = {
         "type": "FeatureCollection",
         "features": [{
@@ -96,54 +115,57 @@ function showPosition(position) {
             }
         }]
     };
-    // Data from Yelp barber shop list .
+    console.log("GOT HERE")
+    for (var k = 0; k <= yelpLatLon.length; k++)
+        console.log(yelplon[k]);
     var barberShops = {
-
         "type": "FeatureCollection",
         "features": [{
             "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-81.350912,
-                    28.5388149
-                ]
-            }
+            "geometry": { "type": "Point", "coordinates": [yelpLatLon[k]] }
         }]
+
     };
+    console.log(yelpLatLon[k]);
 
-    map.on('load', function(e) {
-        // Add the data to your map as a layer
 
-        //Layer for the User location marked with a "hospital cross"
-        map.addLayer({
-            id: 'user',
-            type: 'symbol',
-            // Add a GeoJSON source containing place coordinates and information.
-            source: {
-                type: 'geojson',
-                data: userLoc
-            },
-            layout: {
-                'icon-image': 'hospital-15',
-                'icon-allow-overlap': true,
-            }
-        });
-        console.log("A");
-        console.log(userLoc);
-        console.log(barberShops);
-        //Layer for the User location marked with a "embassy flag"
-        map.addLayer({
-            id: 'locations',
-            type: 'symbol',
-            // Add a GeoJSON source containing place coordinates and information.
-            source: {
-                type: 'geojson',
-                data: barberShops
-            },
-            layout: {
-                'icon-image': 'embassy-15',
-                'icon-allow-overlap': true,
-            }
-        });
+
+};
+
+
+map.on('load', function(e) {
+    // Add the data to your map as a layer
+
+    //Layer for the User location marked with a "hospital cross"
+    map.addLayer({
+        id: 'user',
+        type: 'symbol',
+        // Add a GeoJSON source containing place coordinates and information.
+        source: {
+            type: 'geojson',
+            data: userLoc
+        },
+        layout: {
+            'icon-image': 'hospital-15',
+            'icon-allow-overlap': true,
+        }
     });
-}
+    console.log("A");
+    console.log(userLoc);
+    console.log(barberShops);
+    //Layer for the User location marked with a "embassy flag"
+    map.addLayer({
+        id: 'locations',
+        type: 'symbol',
+        // Add a GeoJSON source containing place coordinates and information.
+        source: {
+            type: 'geojson',
+            data: barberShops
+        },
+        layout: {
+            'icon-image': 'embassy-15',
+            'icon-allow-overlap': true,
+        }
+    });
+});
+loadShops();

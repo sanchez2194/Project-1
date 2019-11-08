@@ -52,22 +52,42 @@ $.ajax({
     console.log(response.businesses[0].name)
 
     var locations = [];
+    var names = [];
+    var phones = [];
+    var ratings = [];
+    var prices = [];
 
     for(i = 0; i < response.businesses.length; i++){
         var name = response.businesses[i].name;
         var locationLat = response.businesses[i].coordinates.latitude;
         var locationLon = response.businesses[i].coordinates.longitude;
         var phone = response.businesses[i].phone;
+        var phoneSlice = phone.slice(2);
         var rating = response.businesses[i].rating;
         var price = response.businesses[i].price;
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
         var location = [];
         location.push(locationLat, locationLon);
         locations.push(location);
+        names.push(name);
+        phones.push(phoneSlice);
+        ratings.push(rating);
+        prices.push(price);
     }
-    console.log("location: " + locations);
-
+    
+    //populates the list on html2 with the names of barbershops
+    $("#list-1").text(`${names[0]} Phone:  ${phones[0]} Rating:  ${ratings[0]} Price:  ${prices[0]}`);
+    $("#list-2").text(`${names[1]} Phone:  ${phones[1]} Rating:  ${ratings[1]} Price:  ${prices[1]}`);
+    $("#list-3").text(`${names[2]} Phone:  ${phones[2]} Rating:  ${ratings[2]} Price:  ${prices[2]}`);
+    $("#list-4").text(`${names[3]} Phone:  ${phones[3]} Rating:  ${ratings[3]} Price:  ${prices[3]}`);
+    $("#list-5").text(`${names[4]} Phone:  ${phones[4]} Rating:  ${ratings[4]} Price:  ${prices[4]}`);
+    $("#list-6").text(`${names[5]} Phone:  ${phones[5]} Rating:  ${ratings[5]} Price:  ${prices[5]}`);
+    $("#list-7").text(`${names[6]} Phone:  ${phones[6]} Rating:  ${ratings[6]} Price:  ${prices[6]}`);
+    $("#list-8").text(`${names[7]} Phone:  ${phones[7]} Rating:  ${ratings[7]} Price:  ${prices[7]}`);
+    $("#list-9").text(`${names[8]} Phone:  ${phones[8]} Rating:  ${ratings[8]} Price:  ${prices[8]}`);
+    $("#list-10").text(`${names[9]} Phone:  ${phones[9]} Rating:  ${ratings[9]} Price:  ${prices[9]}`);
 });
+
 
 //jed map jaavascript
 getLocation();

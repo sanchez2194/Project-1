@@ -49,11 +49,18 @@ $.ajax({
 }).then(function(response) {
     console.log(response);
     console.log(response.businesses[0].name)
+
+    var location = [];
+
     for(i = 0; i < response.businesses.length; i++){
         var name = response.businesses[i].name;
         var locationLat = response.businesses[i].coordinates.latitude;
         var locationLon = response.businesses[i].coordinates.longitude;
-        console.log(name, "Lat: " + locationLat, "Lon: " + locationLon);
+        var phone = response.businesses[i].phone;
+        var rating = response.businesses[i].rating;
+        var price = response.businesses[i].price;
+        console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
+        
     }
   
 });

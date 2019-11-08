@@ -40,7 +40,7 @@ $("#sign-up-submit").on("click", function() {
 
 
 
-//Yelp API
+///Yelp API
 var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=barber&location=orlando&limit=10";
 
 $.ajax({
@@ -52,42 +52,24 @@ $.ajax({
     console.log(response.businesses[0].name)
 
     var locations = [];
-    var names = [];
-    var phones = [];
-    var ratings = [];
-    var prices = [];
 
     for (i = 0; i < response.businesses.length; i++) {
         var name = response.businesses[i].name;
         var locationLat = response.businesses[i].coordinates.latitude;
         var locationLon = response.businesses[i].coordinates.longitude;
         var phone = response.businesses[i].phone;
-        var phoneSlice = phone.slice(2);
         var rating = response.businesses[i].rating;
         var price = response.businesses[i].price;
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
-        
-        
-        locations.push([locationLat, locationLon]);
-        names.push(name);
-        phones.push(phoneSlice);
-        ratings.push(rating);
-        prices.push(price);
+        // var location = [];
+        // location.push(locationLat, locationLon);
+        // locations.push(location);
+        locations.push([locationLon, LocationLat])
     }
-    console.log(locations);
-    //populates the list on html2 with the names of barbershops
-    $("#list-1").text(`${names[0]} Phone:  ${phones[0]} Rating:  ${ratings[0]} Price:  ${prices[0]}`);
-    $("#list-2").text(`${names[1]} Phone:  ${phones[1]} Rating:  ${ratings[1]} Price:  ${prices[1]}`);
-    $("#list-3").text(`${names[2]} Phone:  ${phones[2]} Rating:  ${ratings[2]} Price:  ${prices[2]}`);
-    $("#list-4").text(`${names[3]} Phone:  ${phones[3]} Rating:  ${ratings[3]} Price:  ${prices[3]}`);
-    $("#list-5").text(`${names[4]} Phone:  ${phones[4]} Rating:  ${ratings[4]} Price:  ${prices[4]}`);
-    $("#list-6").text(`${names[5]} Phone:  ${phones[5]} Rating:  ${ratings[5]} Price:  ${prices[5]}`);
-    $("#list-7").text(`${names[6]} Phone:  ${phones[6]} Rating:  ${ratings[6]} Price:  ${prices[6]}`);
-    $("#list-8").text(`${names[7]} Phone:  ${phones[7]} Rating:  ${ratings[7]} Price:  ${prices[7]}`);
-    $("#list-9").text(`${names[8]} Phone:  ${phones[8]} Rating:  ${ratings[8]} Price:  ${prices[8]}`);
-    $("#list-10").text(`${names[9]} Phone:  ${phones[9]} Rating:  ${ratings[9]} Price:  ${prices[9]}`);
-});
 
+    console.log("location: " + locations);
+    createFeatureArray(locations)
+});
 
 //jed map jaavascript
 getLocation();
@@ -102,7 +84,7 @@ function getLocation() {
     } else {
         Alert("Geolocation is not supported by this browser.");
     }
-    0
+
 }
 
 function showPosition(position) {
@@ -134,20 +116,41 @@ function showPosition(position) {
             }
         }]
     };
-    // Data from Yelp barber shop list .
-    var barberShops = {
+    console.log(userLoc);
 
-        "type": "FeatureCollection",
-        "features": [{
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-81.350912,
-                    28.5388149
-                ]
-            }
-        }]
-    };
+    // location arrays are in lat, lon format
+    const locations = [locationLon, LocationLat];
+    // const locations = [
+    //     [28.617, -81.22565],
+    //     [28.65619, -81.22565],
+    //     [28.618, -81.22565],
+
+    // ];
+
+
+    function createFeatureArray(locations) {
+        const features = locations.map(location => {
+            let lon = location[1];
+            let lat = location[0];
+            console.log(location[0]);
+            console.log(location[1]);
+            return (locationObject = {
+                type: "Feature",
+                geometry: {
+                    type: "Point",
+                    coordinates: [lon, lat]
+                }
+            });
+        });
+        return features;
+        // console.log(features);
+    }
+    const newFeatures = createFeatureArray(locations);
+    console.log(newFeatures);
+    const Geoson = { type: "FeatureCollection", features: newFeatures };
+    console.log(Geoson);
+
+
 
     map.on('load', function(e) {
         // Add the data to your map as a layer
@@ -166,9 +169,7 @@ function showPosition(position) {
                 'icon-allow-overlap': true,
             }
         });
-        console.log("A");
-        console.log(userLoc);
-        console.log(barberShops);
+
         //Layer for the User location marked with a "embassy flag"
         map.addLayer({
             id: 'locations',
@@ -176,7 +177,7 @@ function showPosition(position) {
             // Add a GeoJSON source containing place coordinates and information.
             source: {
                 type: 'geojson',
-                data: barberShops
+                data: Geoson
             },
             layout: {
                 'icon-image': 'embassy-15',

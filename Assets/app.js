@@ -22,7 +22,7 @@ var lastName = "";
 var userName = "";
 
 //Sign up page on click
-$("#sign-up-submit").on("click", function () {
+$("#sign-up-submit").on("click", function() {
     event.preventDefault();
 
     firstName = $("#sign-up-first-name").val().trim();
@@ -48,7 +48,7 @@ $.ajax({
     url: queryURL,
     headers: { 'Authorization': 'Bearer TCiwvMm97n-s02wZrMf_VYRLuSz7WJ0gG432s16cNVJDzBA4KdpJItFoQL5NXG-F6e8gvJXLQ656-tzz7hbPBHnClHDGK03wp9yezR7Y4S1RuB1xE2ZiLtm58JC3XXYx', },
     method: "GET",
-}).then(function (response) {
+}).then(function(response) {
     console.log(response);
     console.log(response.businesses[0].name)
 
@@ -70,7 +70,7 @@ $.ajax({
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
 
 
-        locations.push([locationLon, locationLat]);
+        locations.push([locationLat, locationLon]);
         names.push(name);
         phones.push(phoneSlice);
         ratings.push(rating);
@@ -95,8 +95,8 @@ $.ajax({
         // const newFeatures = createFeatureArray(locations);
         // const GeoJson = { type: "FeatureCollection", features: newFeatures };
         // console.log(GeoJson);
-        
-        
+
+
     };
     console.log("location array of arrays: " + locations);
 
@@ -173,7 +173,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[0, 0]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -181,7 +181,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[1, 1]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -189,14 +189,14 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[2, 2]]
                     },
-    
+
                 }, {
                     "type": "Feature",
                     "geometry": {
                         "type": "Point",
                         "coordinates": [locations[3, 3]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -204,7 +204,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[4, 4]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -212,7 +212,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[5, 5]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -220,7 +220,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[6, 6]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -228,7 +228,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[7, 7]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -236,7 +236,7 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[8, 8]]
                     },
-    
+
                 },
                 {
                     "type": "Feature",
@@ -244,14 +244,14 @@ $.ajax({
                         "type": "Point",
                         "coordinates": [locations[9, 9]]
                     },
-    
+
                 },
-                
+
             ]
         };
 
 
-        map.on('load', function (e) {
+        map.on('load', function(e) {
             // Add the data to your map as a layer
 
             //Layer for the User location marked with a "hospital cross"
@@ -287,6 +287,7 @@ $.ajax({
             });
         });
     }
+
 
 
 });

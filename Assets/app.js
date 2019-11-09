@@ -70,7 +70,7 @@ $.ajax({
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
 
 
-        locations.push([locationLat, locationLon]);
+        locations.push([locationLon, locationLat]);
         names.push(name);
         phones.push(phoneSlice);
         ratings.push(rating);
@@ -289,4 +289,45 @@ $.ajax({
     }
 
 
+
 });
+
+function myButton1() {
+    location.replace("https://www.yelp.com/biz/jusincredible-cutz-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton2() {
+    location.replace("https://www.yelp.com/biz/uptown-13-barber-shop-orlando-4?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton3() {
+    location.replace("https://www.yelp.com/biz/nicks-barber-shop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton4() {
+    location.replace("https://www.yelp.com/biz/floyds-99-barbershop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton5() {
+    location.replace("https://www.yelp.com/biz/euro-cuts-barbershop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton6() {
+    location.replace("https://www.yelp.com/biz/melos-barber-shop-orlando-2?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton7() {
+    location.replace("https://www.yelp.com/biz/old-stars-52-barbershop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton8() {
+    location.replace("https://www.yelp.com/biz/atomic-barber-co-winter-park-2?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton9() {
+    location.replace("https://www.yelp.com/biz/liberty-barber-shop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}
+
+function myButton10() {
+    location.replace("https://www.yelp.com/biz/j-christine-barber-shop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
+}

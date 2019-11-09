@@ -66,15 +66,15 @@ $.ajax({
         var rating = response.businesses[i].rating;
         var price = response.businesses[i].price;
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
-        var location = [];
-        location.push(locationLat, locationLon);
-        locations.push(location);
+
+
+        locations.push([locationLat, locationLon]);
         names.push(name);
         phones.push(phoneSlice);
         ratings.push(rating);
         prices.push(price);
     }
-
+    console.log(locations);
     //populates the list on html2 with the names of barbershops
     $("#list-1").text(`${names[0]} Phone:  ${phones[0]} Rating:  ${ratings[0]} Price:  ${prices[0]}`);
     $("#list-2").text(`${names[1]} Phone:  ${phones[1]} Rating:  ${ratings[1]} Price:  ${prices[1]}`);

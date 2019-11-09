@@ -74,7 +74,7 @@ $.ajax({
         ratings.push(rating);
         prices.push(price);
     }
-    
+
     //populates the list on html2 with the names of barbershops
     $("#list-1").text(`${names[0]} Phone:  ${phones[0]} Rating:  ${ratings[0]} Price:  ${prices[0]}`);
     $("#list-2").text(`${names[1]} Phone:  ${phones[1]} Rating:  ${ratings[1]} Price:  ${prices[1]}`);

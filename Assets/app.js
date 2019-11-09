@@ -1,4 +1,4 @@
-alert("Javascriopt Working");
+// alert("Javascriopt Working");
 
 
 
@@ -70,7 +70,7 @@ $.ajax({
         console.log(name, "Lat: " + locationLat, "Lon: " + locationLon, "Phone: " + phone, "Rating: " + rating, "Price: " + price);
 
 
-        locations.push([locationLat, locationLon]);
+        locations.push([locationLon, locationLat]);
         names.push(name);
         phones.push(phoneSlice);
         ratings.push(rating);
@@ -335,10 +335,3 @@ function myButton9() {
 function myButton10() {
     location.replace("https://www.yelp.com/biz/j-christine-barber-shop-orlando?adjust_creative=KRq3S2MKbiOX0csVIwcRAw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=KRq3S2MKbiOX0csVIwcRAw")
 }
-
-
-
-
-
-
-

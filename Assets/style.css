@@ -65,3 +65,15 @@
   .list-group {
     width: 1200px;
   }
+
+  #jumbo {
+    background-color: white;
+  }
+
+  #jumbo2 {
+    background-color: white;
+  }
+
+  h1 {
+    font-family: cursive; 
+  }

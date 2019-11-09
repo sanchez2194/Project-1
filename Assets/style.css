@@ -60,7 +60,7 @@
 
   h1 {
     text-align: center;
-  }
+     }
 
   .list-group {
     width: 1200px;
@@ -76,4 +76,44 @@
 
   h1 {
     font-family: cursive; 
+  }
+
+  #list-1 {
+    text-align: center;
+  }
+
+  #list-2 {
+    text-align: center;
+  }
+
+  #list-3 {
+    text-align: center;
+  }
+
+  #list-4 {
+    text-align: center;
+  }
+
+  #list-5 {
+    text-align: center;
+  }
+
+  #list-6 {
+    text-align: center;
+  }
+
+  #list-7 {
+    text-align: center;
+  }
+
+  #list-8 {
+    text-align: center;
+  }
+
+  #list-9 {
+    text-align: center;
+  }
+
+  #list-10 {
+    text-align: center;
   }

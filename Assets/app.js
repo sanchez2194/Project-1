@@ -253,7 +253,10 @@ $.ajax({
 
         map.on('load', function (e) {
             // Add the data to your map as a layer
+            
 
+                
+            
             //Layer for the User location marked with a "hospital cross"
             map.addLayer({
                 id: 'user',
@@ -267,11 +270,12 @@ $.ajax({
                     'icon-image': 'hospital-15',
                     'icon-allow-overlap': true,
                 }
+
             });
             console.log("A");
             console.log(userLoc);
             console.log(barberShops);
-            //Layer for the User location marked with a "embassy flag"
+           // Layer for the User location marked with a "embassy flag"
             map.addLayer({
                 id: 'locations',
                 type: 'symbol',

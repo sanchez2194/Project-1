@@ -1,14 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en/us">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Project1</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./Assets/style.css">
+    <script src="https://kit.fontawesome.com/a50f784699.js" crossorigin="anonymous"></script>˜
+    <title>Barber Stop Login</title>
 </head>
-<body>
-    
 
-    <script src="./Assets/app.js"></script>
+<body id="body1">
+    <div class="container">
+
+        <!--Navigation-->
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./index2.html">Home</a>
+            </li>
+
+        </ul>
+
+        <!--Barbershop Pole Gif-->
+
+
+        <img src="./Assets/images/barberpole2.gif" alt="barber pole" id="barber-pole">
+
+        <img src="./assets/images/images.jpeg" alt="barber stop" id="barber-pic">
+
+        <img src="./Assets/images/barberpole2.gif" alt="barber pole" id="barber-pole2">
+
+
+
+        <!--Jumbotron Header-->
+        <div class="jumbotron jumbotron-fluid" id="jumbo">
+            <div class="container">
+                <h1 class="display-4">Welcome to Barber Stop</h1>
+                <p class="lead">
+                </p>
+            </div>
+        </div>
+
+        <!--Login Form-->
+        <form class="needs-validation" id="form" novalidate>
+            <div class="form-row"><strong>Sign Up</strong></div>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip01">First name</label>
+                    <input type="text" class="form-control" id="sign-up-first-name" placeholder="First name" value="" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltip02">Last name</label>
+                    <input type="text" class="form-control" id="sign-up-last-name" placeholder="Last name" value="" required>
+                    <div class="valid-tooltip">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="validationTooltipUsername">Username</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="validationTooltipUsernamePrepend">@</span>
+                        </div>
+                        <input type="text" class="form-control" id="sign-up-username" placeholder="Username" aria-describedby="validationTooltipUsernamePrepend" required>
+                        <div class="invalid-tooltip">
+                            Please choose a unique and valid username.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit" id="sign-up-submit" onclick="location.href='./index2.html'" ''>Submit form</button>
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+    <script src="./Assets/ab.js"></script>
+
+
+
 </body>
+
 </html>
